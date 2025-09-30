@@ -3,6 +3,17 @@ const authControllers = require('../controllers/auth.controller')
 
 const router = express.Router();
 
+// GET endpoint to show available auth endpoints
+router.get('/', (req, res) => {
+    res.json({
+        message: "Auth API endpoints",
+        endpoints: {
+            register: "POST /api/auth/register",
+            login: "POST /api/auth/login"
+        },
+        status: "success"
+    });
+});
 
 router.post('/register', authControllers.registerController);
 

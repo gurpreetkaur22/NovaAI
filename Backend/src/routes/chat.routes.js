@@ -4,6 +4,20 @@ const chatController = require('../controllers/chat.controller')
 
 const router = express.Router();
 
+// Info endpoint (no auth required)
+router.get('/info', (req, res) => {
+    res.json({
+        message: "Chat API endpoints",
+        endpoints: {
+            "get_chats": "GET /api/chat/ (requires auth)",
+            "create_chat": "POST /api/chat/ (requires auth)",
+            "get_messages": "GET /api/chat/:chatId/messages (requires auth)"
+        },
+        status: "success",
+        note: "All endpoints except /info require authentication"
+    });
+});
+
 // Get all chats for user
 router.get('/', authMiddleware.authUser, chatController.getUserChats);
 
