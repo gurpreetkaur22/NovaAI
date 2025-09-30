@@ -33,4 +33,12 @@ app.get('/', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/chat', chatRoutes);
 
+// Debug route to test if routing works
+app.get('/api/test', (req, res) => {
+    res.json({
+        message: "Test route working!",
+        status: "success"
+    });
+});
+
 module.exports = app;
