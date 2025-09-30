@@ -5,7 +5,7 @@ const userModel = require('../models/user.model');
 const aiService = require('../services/ai.service');
 const messageModel = require('../models/message.model');
 const {createMemory, queryMemory} = require('../services/vector.service');
-const { chat } = require("@pinecone-database/pinecone/dist/assistant/data/chat");
+// Removed unused Pinecone chat import
 
 function initSocketServer(httpServer) {
     const io = new Server(httpServer, {

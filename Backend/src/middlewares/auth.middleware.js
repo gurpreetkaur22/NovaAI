@@ -1,4 +1,4 @@
-const { message } = require('prompt-async');
+// Removed unused prompt-async import
 const userModel = require('../models/user.model');
 const jwt = require('jsonwebtoken');
 
