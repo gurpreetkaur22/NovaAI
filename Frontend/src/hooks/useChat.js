@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { API_BASE_URL } from '../config/api';
 
 const useChat = () => {
   const [chatHistory, setChatHistory] = useState([]);
@@ -8,7 +9,7 @@ const useChat = () => {
 
   const loadChatHistory = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/api/chat", {
+      const response = await axios.get(`${API_BASE_URL}/api/chat`, {
         withCredentials: true,
       });
 
@@ -32,7 +33,7 @@ const useChat = () => {
   const loadChatMessages = async (chatId) => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/chat/${chatId}/messages`,
+        `${API_BASE_URL}/api/chat/${chatId}/messages`,
         {
           withCredentials: true,
         }
@@ -59,7 +60,7 @@ const useChat = () => {
   const createNewChat = async (title) => {
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/chat",
+        `${API_BASE_URL}/api/chat`,
         { title },
         { withCredentials: true }
       );

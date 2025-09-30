@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import ai from "/ai.svg";
 import AnimatedBtn from "../components/AnimatedBtn/AnimatedBtn";
+import { API_BASE_URL } from "../config/api";
 
 const Register = () => {
   const [form, setForm] = useState({
@@ -26,7 +27,7 @@ const Register = () => {
 
     axios
       .post(
-        "http://localhost:3000/api/auth/register",
+        `${API_BASE_URL}/api/auth/register`,
         {
           email: form.email,
           fullName: {

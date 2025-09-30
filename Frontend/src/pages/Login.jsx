@@ -3,6 +3,7 @@ import axios from "axios";
 import ai from "/ai.svg";
 import AnimatedBtn from "../components/AnimatedBtn/AnimatedBtn";
 import { useState } from "react";
+import { API_BASE_URL } from "../config/api";
 
 const Login = () => {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -21,7 +22,7 @@ const Login = () => {
 
     axios
       .post(
-        "http://localhost:3000/api/auth/login",
+        `${API_BASE_URL}/api/auth/login`,
         {
           email: form.email,
           password: form.password,

@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import { io } from 'socket.io-client';
+import { API_BASE_URL } from '../config/api';
 
 const useSocket = () => {
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    const newSocket = io("http://localhost:3000", {
+    const newSocket = io(API_BASE_URL, {
       withCredentials: true,
     });
 
