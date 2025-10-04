@@ -23,7 +23,9 @@ const Register = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     setSubmitting(true);
-    console.log(form);
+    console.log("Form data:", form);
+    console.log("API_BASE_URL:", API_BASE_URL);
+    console.log("Full URL:", `${API_BASE_URL}/api/auth/register`);
 
     axios
       .post(
@@ -51,8 +53,10 @@ const Register = () => {
         console.log(res);
       })
       .catch((err) => {
-        console.log(err);
-        alert("Registration failed");
+        console.error("Registration error:", err);
+        console.error("Error response:", err.response?.data);
+        console.error("Error status:", err.response?.status);
+        alert(`Registration failed: ${err.response?.data?.message || err.message}`);
       })
       .finally(() => {
         setSubmitting(false);
