@@ -10,7 +10,7 @@ const app = express();
 
 // middlewares
 app.use(cors({
-    origin: ['http://localhost:5173', 'https://novaai-35p8.onrender.com'],
+    origin: ['http://localhost:5173', 'https://novaai-35p8.onrender.com', 'https://novaai-frontend.onrender.com'],
     credentials: true
 }));
 app.use(express.json());
