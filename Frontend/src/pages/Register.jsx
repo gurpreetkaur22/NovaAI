@@ -23,8 +23,6 @@ const Register = () => {
     e.preventDefault();
     setSubmitting(true);
     console.log("Form data:", form);
-    console.log("API_BASE_URL:", API_BASE_URL);
-    console.log("Full URL:", `${API_BASE_URL}/api/auth/register`);
 
     apiClient
       .post('/api/auth/register', {
