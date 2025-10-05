@@ -29,7 +29,7 @@ const ChatSidebar = ({
           </div>
 
           {/* New Chat Button */}
-          <div className="!mt-[2rem] w-full flex justify-center">
+          <div className="!mt-[1rem] sm:!mt-[2rem] w-full flex justify-center">
             <AnimatedBtn onClick={onNewChat}>+ New Chat</AnimatedBtn>
           </div>
         </div>

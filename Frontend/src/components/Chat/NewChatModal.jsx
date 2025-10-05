@@ -24,16 +24,20 @@ const NewChatModal = ({
           autoFocus
           onKeyDown={(e) => e.key === "Enter" && onCreateChat()}
         />
-        <div className="flex gap-3 justify-end">
+        <div className="flex gap-3 justify-center sm:justify-end">
           <button
             onClick={onClose}
-            className="!px-6 !py-2 !mt-5 border border-gray-600 text-gray-400 hover:text-white hover:border-gray-400 rounded-xl transition-all text-xl"
+            className="flex-1 sm:flex-none !px-4 sm:!px-6 !py-2 sm:!py-3 border border-gray-600 text-gray-400 hover:text-white hover:border-gray-400 rounded-xl transition-all text-sm sm:text-base font-medium min-w-[100px]"
           >
             Cancel
           </button>
-          <AnimatedBtn onClick={onCreateChat} disabled={!chatTitle.trim()}>
+          <button
+            onClick={onCreateChat}
+            disabled={!chatTitle.trim()}
+            className="flex-1 sm:flex-none !px-4 sm:!px-6 !py-2 sm:!py-3 border-2 border-[#549295] bg-transparent text-white hover:bg-[#549295] rounded-xl transition-all text-sm sm:text-base font-medium min-w-[100px] disabled:opacity-50 disabled:cursor-not-allowed"
+          >
             Create Chat
-          </AnimatedBtn>
+          </button>
         </div>
       </div>
     </div>
