@@ -109,7 +109,7 @@ const Login = () => {
 
             {/* Login Button */}
             <div className="w-full flex justify-center">
-              <AnimatedBtn type="submit" disabled={submitting}>
+              <AnimatedBtn className="!mt-7" type="submit" disabled={submitting}>
                 {submitting ? "Signing in..." : "Sign in"}
               </AnimatedBtn>
             </div>
