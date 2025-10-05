@@ -2,7 +2,7 @@
 
 A modern, full-stack AI chat application built with React and Node.js, featuring real-time messaging, user authentication, and an intuitive interface for seamless AI conversations.
 
-![Nova AI Banner](https://via.placeholder.com/800x400/3c6e71/ffffff?text=Nova+AI+-+Your+Intelligent+Companion)
+![alt text](image-1.png)
 
 ## 🌟 Features
 
@@ -240,13 +240,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- **OpenAI** for AI integration inspiration
+- **Gemini** for AI integration inspiration
 - **Lottie Files** for beautiful animations
 - **Tailwind CSS** for the utility-first CSS framework
 - **Socket.IO** for real-time communication
 - **MongoDB** for flexible data storage
 
-## 📞 Contact
+<!-- ## 📞 Contact
 
 **Your Name** - [your.email@example.com](mailto:your.email@example.com)
 
@@ -254,8 +254,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Live Demo**: [https://nova-ai-demo.onrender.com](https://nova-ai-demo.onrender.com)
 
----
+--- -->
 
 ⭐ **Star this repository if you found it helpful!**
 
-Built with ❤️ by [Your Name]
+Built with ❤️ by Gurpreet Kaur
