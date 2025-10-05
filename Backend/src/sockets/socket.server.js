@@ -10,28 +10,41 @@ const {createMemory, queryMemory} = require('../services/vector.service');
 function initSocketServer(httpServer) {
     const io = new Server(httpServer, {
         cors: {
-            origin: "http://localhost:5173",
+            origin: ['http://localhost:5173', 'https://novaai-35p8.onrender.com', 'https://novaai-frontend.onrender.com', 'https://novaai-1-93pi.onrender.com'],
             credentials: true
         }
     });
 
     io.use(async (socket, next)=> {
-        const cookies = cookie.parse(socket.handshake.headers?.cookie || "")
+        const cookies = cookie.parse(socket.handshake.headers?.cookie || "");
+        let token = cookies.token;
         
-        if(!cookies.token) {
-            next(new Error("Authentication error: No token provided"))
+        // If no cookie token, try Authorization header
+        if (!token) {
+            const authHeader = socket.handshake.headers.authorization;
+            if (authHeader && authHeader.startsWith('Bearer ')) {
+                token = authHeader.substring(7);
+            }
+        }
+        
+        if(!token) {
+            return next(new Error("Authentication error: No token provided"));
         }
 
         try {
-            const decoded = jwt.verify(cookies.token, process.env.JWT_SECRET);
-
+            const decoded = jwt.verify(token, process.env.JWT_SECRET);
             const user = await userModel.findById(decoded.id).select("-password");
+            
+            if (!user) {
+                return next(new Error("Authentication error: User not found"));
+            }
 
             socket.user = user;
             next();
 
         } catch (err) {
-            next(new Error("Authentication error: Invalid token"))
+            console.error("Socket auth error:", err);
+            next(new Error("Authentication error: Invalid token"));
         }
     })
 

@@ -6,8 +6,12 @@ const useSocket = () => {
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
+    const token = localStorage.getItem('token');
     const newSocket = io(API_BASE_URL, {
       withCredentials: true,
+      extraHeaders: token ? {
+        Authorization: `Bearer ${token}`
+      } : {}
     });
 
     newSocket.on("connect", () => {
