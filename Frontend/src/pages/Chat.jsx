@@ -36,8 +36,10 @@ const Chat = () => {
   }, [messages]);
 
   useEffect(() => {
-    if (socket) loadChatHistory();
-  }, [socket, loadChatHistory]);
+    if (socket && chatHistory.length === 0) {
+      loadChatHistory();
+    }
+  }, [socket]);
 
   const handleSendMessage = async (e) => {
     e.preventDefault();

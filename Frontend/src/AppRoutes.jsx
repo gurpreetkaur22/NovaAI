@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import {HashRouter, Route, Routes} from 'react-router-dom'
 import Home from './pages/Home'
 import Register from './pages/Register'
 import Login from './pages/Login'
@@ -10,7 +10,7 @@ import ProtectedRoute from './components/ProtectedRoute'
 const AppRoutes = () => {
   return (
     <div>
-      <BrowserRouter>
+      <HashRouter>
       <Routes>
         <Route path='/' element={<Layout><Home/></Layout>}/>
         <Route path='/register' element={<Layout><Register/></Layout>}/>
@@ -22,7 +22,7 @@ const AppRoutes = () => {
             </Layout>
           </ProtectedRoute>}/>
       </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   )
 }

@@ -16,7 +16,7 @@ const useChat = () => {
           title: chat.title,
           lastMessage: "Click to view messages",
           timestamp: new Date(chat.lastActivity || chat.updatedAt),
-          isActive: false,
+          isActive: chat._id === currentChatId, // Preserve active state
         }));
 
         setChatHistory(formattedChats);
