@@ -18,7 +18,7 @@ const ChatSidebar = ({
     >
       <div className="flex flex-col h-full">
         {/* Sidebar Header */}
-        <div className="!p-4 border-b border-[#3c6e71]/30">
+        <div className="!p-4 !pb-6 border-b border-[#3c6e71]/30">
           <div className="flex items-center justify-between !mb-4">
             <div className="flex items-center gap-2">
               <img src={ai} alt="Nova" className="w-6 h-6" />
@@ -29,13 +29,13 @@ const ChatSidebar = ({
           </div>
 
           {/* New Chat Button */}
-          <div className="!mt-[1rem] sm:!mt-[2rem] w-full flex justify-center">
+          <div className="!mt-4 w-full flex justify-center">
             <AnimatedBtn onClick={onNewChat}>+ New Chat</AnimatedBtn>
           </div>
         </div>
 
         {/* Chat History */}
-        <div className="flex-1 overflow-y-auto !p-2 sidebar-scrollbar">
+        <div className="flex-1 overflow-y-auto !p-4 !pt-4 sidebar-scrollbar">
           {chatHistory.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-full text-center !p-4">
               <div className="text-4xl !mb-4">💬</div>
@@ -53,7 +53,7 @@ const ChatSidebar = ({
               </button>
             </div>
           ) : (
-            <div className="space-y-2">
+            <div className="space-y-3">
               {chatHistory.map((chat) => (
                 <div
                   key={chat.id}
