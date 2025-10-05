@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import ai from "/ai.svg";
 import AnimatedBtn from "../components/AnimatedBtn/AnimatedBtn";
-import { API_BASE_URL } from "../config/api";
+import { apiClient } from "../config/api";
 
 const Register = () => {
   const [form, setForm] = useState({
@@ -27,21 +26,15 @@ const Register = () => {
     console.log("API_BASE_URL:", API_BASE_URL);
     console.log("Full URL:", `${API_BASE_URL}/api/auth/register`);
 
-    axios
-      .post(
-        `${API_BASE_URL}/api/auth/register`,
-        {
-          email: form.email,
-          fullName: {
-            firstName: form.firstname,
-            lastName: form.lastname,
-          },
-          password: form.password,
+    apiClient
+      .post('/api/auth/register', {
+        email: form.email,
+        fullName: {
+          firstName: form.firstname,
+          lastName: form.lastname,
         },
-        {
-          withCredentials: true,
-        }
-      )
+        password: form.password,
+      })
       .then((res) => {
         // Store authentication token
         if (res.data.token) {

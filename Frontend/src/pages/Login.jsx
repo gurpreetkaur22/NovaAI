@@ -1,9 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import ai from "/ai.svg";
 import AnimatedBtn from "../components/AnimatedBtn/AnimatedBtn";
 import { useState } from "react";
-import { API_BASE_URL } from "../config/api";
+import { apiClient } from "../config/api";
 
 const Login = () => {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -20,20 +19,16 @@ const Login = () => {
     setSubmitting(true);
     console.log(form);
 
-    axios
-      .post(
-        `${API_BASE_URL}/api/auth/login`,
-        {
-          email: form.email,
-          password: form.password,
-        },
-        {
-          withCredentials: true,
-        }
-      )
+    apiClient
+      .post('/api/auth/login', {
+        email: form.email,
+        password: form.password,
+      })
       .then((res) => {
-        // Temporary authentication flag
-        localStorage.setItem("token", "authenticated");
+        // Store authentication token
+        if (res.data.token) {
+          localStorage.setItem("token", res.data.token);
+        }
         navigate("/chat");
         console.log(res);
       })

@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import axios from 'axios';
-import { API_BASE_URL } from '../config/api';
+import { apiClient } from '../config/api';
 
 const useChat = () => {
   const [chatHistory, setChatHistory] = useState([]);
@@ -9,9 +8,7 @@ const useChat = () => {
 
   const loadChatHistory = async () => {
     try {
-      const response = await axios.get(`${API_BASE_URL}/api/chat`, {
-        withCredentials: true,
-      });
+      const response = await apiClient.get('/api/chat');
 
       if (response.data && response.data.length > 0) {
         const formattedChats = response.data.map((chat) => ({
@@ -32,12 +29,7 @@ const useChat = () => {
 
   const loadChatMessages = async (chatId) => {
     try {
-      const response = await axios.get(
-        `${API_BASE_URL}/api/chat/${chatId}/messages`,
-        {
-          withCredentials: true,
-        }
-      );
+      const response = await apiClient.get(`/api/chat/${chatId}/messages`);
 
       if (response.data && response.data.length > 0) {
         const formattedMessages = response.data.map((msg) => ({
@@ -59,11 +51,7 @@ const useChat = () => {
 
   const createNewChat = async (title) => {
     try {
-      const response = await axios.post(
-        `${API_BASE_URL}/api/chat`,
-        { title },
-        { withCredentials: true }
-      );
+      const response = await apiClient.post('/api/chat', { title });
 
       const newChat = {
         id: response.data._id,
