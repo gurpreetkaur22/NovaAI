@@ -29,6 +29,12 @@ const Login = () => {
         if (res.data.token) {
           localStorage.setItem("token", res.data.token);
         }
+        
+        // Store user data
+        if (res.data.user) {
+          localStorage.setItem("user", JSON.stringify(res.data.user));
+        }
+        
         navigate("/chat");
         console.log(res);
       })

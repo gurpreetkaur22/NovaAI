@@ -30,12 +30,12 @@ const ChatSidebar = ({
 
           {/* New Chat Button */}
           <div className="!mt-4 w-full flex justify-center">
-            <AnimatedBtn onClick={onNewChat}>+ New Chat</AnimatedBtn>
+            <AnimatedBtn className="!mt-12" onClick={onNewChat}>+ New Chat</AnimatedBtn>
           </div>
         </div>
 
         {/* Chat History */}
-        <div className="flex-1 overflow-y-auto !p-4 !pt-4 sidebar-scrollbar">
+        <div className="flex-1 overflow-y-auto !p-4 !pt-4 !pb-2 sidebar-scrollbar">
           {chatHistory.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-full text-center !p-4">
               <div className="text-4xl !mb-4">💬</div>
@@ -53,7 +53,7 @@ const ChatSidebar = ({
               </button>
             </div>
           ) : (
-            <div className="space-y-3">
+            <div className="space-y-2">
               {chatHistory.map((chat) => (
                 <div
                   key={chat.id}
@@ -87,7 +87,7 @@ const ChatSidebar = ({
         </div>
 
         {/* Sidebar Footer */}
-        <div className="!p-4 border-t border-[#3c6e71]/30">
+        <div className="!p-4 !pb-24 md:!pb-4 border-t border-[#3c6e71]/30">
           <div className="w-full flex justify-center">
             <AnimatedBtn onClick={onLogout}>Logout</AnimatedBtn>
           </div>

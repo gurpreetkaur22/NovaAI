@@ -13,6 +13,10 @@
   background: transparent;
   white-space: nowrap;
   min-width: fit-content;
+  height: 2.5rem; /* 40px - matches input height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Responsive sizing */
@@ -20,7 +24,8 @@
   .animated-btn {
     font-size: 1rem; /* 16px */
     padding: 0.5rem 1.5rem;
-    margin-top: 1.25rem;
+    margin-top: 0;
+    height: 3rem; /* 48px - matches larger input height */
   }
 }
 

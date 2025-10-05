@@ -22,13 +22,14 @@ const ChatInput = ({
             value={inputMessage}
             onChange={(e) => setInputMessage(e.target.value)}
             placeholder="Type your message to Nova..."
-            className="flex-1 min-w-0 !px-3 sm:!px-4 !py-2 sm:!py-3 bg-black/50 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:border-[#3c6e71] focus:outline-none focus:ring-2 focus:ring-[#3c6e71]/50 transition-all text-sm sm:text-base"
+            className="flex-1 min-w-0 !px-3 sm:!px-4 !py-2 sm:!py-2 bg-black/50 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:border-[#3c6e71] focus:outline-none focus:ring-2 focus:ring-[#3c6e71]/50 transition-all text-sm sm:text-base h-10 sm:h-12"
             disabled={isTyping}
           />
           <div className="flex-shrink-0">
             <AnimatedBtn
               type="submit"
               disabled={!inputMessage.trim() || isTyping}
+              className="!mt-0"
             >
               {isTyping ? "..." : "Send"}
             </AnimatedBtn>

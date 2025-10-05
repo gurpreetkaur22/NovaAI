@@ -38,6 +38,11 @@ const Register = () => {
         if (res.data.token) {
           localStorage.setItem("token", res.data.token);
         }
+        
+        // Store user data
+        if (res.data.user) {
+          localStorage.setItem("user", JSON.stringify(res.data.user));
+        }
 
         // Redirect to chat page after successful registration
         navigate("/chat");

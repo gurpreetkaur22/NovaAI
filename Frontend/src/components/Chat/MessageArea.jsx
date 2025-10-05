@@ -2,6 +2,8 @@ import React from 'react';
 import ai from '/ai.svg';
 import AnimatedBtn from '../AnimatedBtn/AnimatedBtn';
 import FormattedMessage from './FormattedMessage';
+import LottieAnimation from '../LottieAnimation/LottieAnimation';
+import robotAnimation from '../../assets/lottie.json';
 
 const MessageArea = ({ 
   sidebarOpen, 
@@ -25,7 +27,14 @@ const MessageArea = ({
     >
       {!currentChatId ? (
         <div className="flex flex-col items-center justify-center h-full text-center">
-          <div className="text-6xl !mb-6">🤖</div>
+          <div className="!mb-6">
+            <LottieAnimation 
+              animationData={robotAnimation}
+              width={150}
+              height={150}
+              className="drop-shadow-2xl"
+            />
+          </div>
           <h2 className="text-3xl font-bold text-white !mb-4">
             Welcome to Nova AI
           </h2>
@@ -47,7 +56,7 @@ const MessageArea = ({
               }`}
             >
               <div
-                className={`max-w-xs md:max-w-md lg:max-w-lg !p-4 rounded-2xl shadow-lg transition-all duration-300 hover:scale-105 ${
+                className={`max-w-xs md:max-w-md lg:max-w-xl xl:max-w-2xl !p-4 rounded-2xl shadow-lg transition-all duration-300 ${
                   message.sender === "user"
                     ? "bg-gradient-to-r from-[#3c6e71] to-[#549295] text-white shadow-[#3c6e71]/30"
                     : "backdrop-blur-2xl bg-black/30 border border-[#3c6e71]/30 text-white shadow-[#549295]/20"
