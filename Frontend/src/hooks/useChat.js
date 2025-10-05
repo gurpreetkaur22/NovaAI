@@ -77,15 +77,12 @@ const useChat = () => {
   };
 
   const selectChat = (chatId) => {
-    console.log("Selecting chat:", chatId);
-    setChatHistory((prev) => {
-      const updated = prev.map((chat) => ({
+    setChatHistory((prev) =>
+      prev.map((chat) => ({
         ...chat,
         isActive: chat.id === chatId,
-      }));
-      console.log("Updated chat history:", updated);
-      return updated;
-    });
+      }))
+    );
     setCurrentChatId(chatId);
     loadChatMessages(chatId);
   };

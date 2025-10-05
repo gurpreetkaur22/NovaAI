@@ -58,14 +58,19 @@ const ChatSidebar = ({
                 <div
                   key={chat.id}
                   onClick={() => onSelectChat(chat.id)}
-                  className={`!p-3 rounded-xl cursor-pointer transition-all duration-300 hover:scale-105 ${
+                  className={`!p-3 rounded-xl cursor-pointer transition-all duration-300 hover:scale-105 relative ${
                     chat.isActive
-                      ? "bg-[#3c6e71]/30 border border-[#3c6e71]/50"
+                      ? "bg-[#3c6e71]/50 border-2 border-[#3c6e71] shadow-lg shadow-[#3c6e71]/20"
                       : "hover:bg-black/30 border border-transparent"
                   }`}
                 >
+                  {chat.isActive && (
+                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#3c6e71] rounded-l-xl"></div>
+                  )}
                   <div className="flex justify-between items-start !mb-1">
-                    <h3 className="text-sm font-semibold text-white truncate">
+                    <h3 className={`text-sm font-semibold truncate ${
+                      chat.isActive ? "text-[#3c6e71]" : "text-white"
+                    }`}>
                       {chat.title}
                     </h3>
                     <span className="text-xs text-gray-500 ml-2">
