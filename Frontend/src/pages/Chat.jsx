@@ -13,7 +13,7 @@ import "./Chat.css";
 const Chat = () => {
   const [inputMessage, setInputMessage] = useState("");
   const [isTyping, setIsTyping] = useState(false);
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth >= 768);
   const [modalState, setModalState] = useState({ show: false, title: "" });
   const messagesEndRef = useRef(null);
 
