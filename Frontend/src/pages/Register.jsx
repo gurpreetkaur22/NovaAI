@@ -61,13 +61,6 @@ const Register = () => {
       .finally(() => {
         setSubmitting(false);
       });
-
-    try {
-    } catch (err) {
-      console.log(err);
-    } finally {
-      setSubmitting(false);
-    }
   }
 
   return (
